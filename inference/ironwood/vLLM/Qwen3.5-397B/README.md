@@ -272,39 +272,72 @@ kubectl delete -f qwen3_5-benchmark-8k1k.yaml
 
 ### Example Benchmark Output
 
-The benchmark client will print a table resembling the following:
+The benchmark client output for the workloads:
+
+#### Workload A (1k/8k):
 
 ```
 ============ Serving Benchmark Result ============
-Successful requests:                     320
-Failed requests:                         0
-Benchmark duration (s):                  xxx
-Total input tokens:                      xxx
-Total generated tokens:                  xxx
-Request throughput (req/s):              xx
-Output token throughput (tok/s):         xxx
-Peak output token throughput (tok/s):    xxx
-Peak concurrent requests:                128.00
-Total Token throughput (tok/s):          xxx
+Successful requests: 640
+Benchmark duration (s): 913.99
+Total input tokens: 590227
+Total generated tokens: 4727146
+Request throughput (req/s): 0.70
+Output token throughput (tok/s): 5171.98
+Total Token throughput (tok/s): 5817.75
 ---------------Time to First Token----------------
-Mean TTFT (ms):                          xxx
-Median TTFT (ms):                        xxx
-P99 TTFT (ms):                           xxx
+Mean TTFT (ms): 3346.51
+Median TTFT (ms): 2158.17
+P99 TTFT (ms): 28310.86
 -----Time per Output Token (excl. 1st token)------
-Mean TPOT (ms):                          xxx
-Median TPOT (ms):                        xxx
-P99 TPOT (ms):                           xxx
+Mean TPOT (ms): 21.97
+Median TPOT (ms): 21.83
+P99 TPOT (ms): 24.05
 ---------------Inter-token Latency----------------
-Mean ITL (ms):                           xxx
-Median ITL (ms):                         xxx
-P99 ITL (ms):                            xxx
+Mean ITL (ms): 21.97
+Median ITL (ms): 21.40
+P99 ITL (ms): 26.52
+----------------End-to-end Latency----------------
+Mean E2EL (ms): 165625.97
+Median E2EL (ms): 165131.62
+P99 E2EL (ms): 198644.66
+==================================================
+```
+
+#### Workload B (8k/1k):
+
+```
+============ Serving Benchmark Result ============
+Successful requests: 320
+Benchmark duration (s): 129.84
+Total input tokens: 2352062
+Total generated tokens: 296143
+Request throughput (req/s): 2.46
+Output token throughput (tok/s): 2280.85
+Total Token throughput (tok/s): 20396.05
+---------------Time to First Token----------------
+Mean TTFT (ms): 6788.68
+Median TTFT (ms): 3687.81
+P99 TTFT (ms): 33613.33
+-----Time per Output Token (excl. 1st token)------
+Mean TPOT (ms): 44.81
+Median TPOT (ms): 47.03
+P99 TPOT (ms): 63.03
+---------------Inter-token Latency----------------
+Mean ITL (ms): 44.94
+Median ITL (ms): 22.49
+P99 ITL (ms): 287.80
+----------------End-to-end Latency----------------
+Mean E2EL (ms): 48337.14
+Median E2EL (ms): 48351.88
+P99 E2EL (ms): 83079.60
 ==================================================
 ```
 
 Workload (input tokens/output tokens) | Output Token Throughput (tok/s) Per Chip
 :------- | :---------------------------------------
-1k/8k    | 3956.67 tok/s (989.17 tok/s/chip)
-8k/1k    | 1998.18 tok/s (499.55 tok/s/chip)
+1k/8k    | 5171.98 tok/s (1293.00 tok/s/chip)
+8k/1k    | 2280.85 tok/s (570.21 tok/s/chip)
 
 **Note**: These benchmark results are based on the `InferenceX` client. The development team is continuously improving and optimizing performance; as such, these results are subject to change, and improved or optimized figures may be published in the future.
 
