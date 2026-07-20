@@ -303,8 +303,8 @@ P99 ITL (ms):                            xxx
 
 Workload (input tokens/output tokens) | Output Token Throughput (tok/s) Per Chip
 :------- | :---------------------------------------
-1k/8k    | 3956.67 tok/s (989.17 tok/s/chip)
-8k/1k    | 1998.18 tok/s (499.55 tok/s/chip)
+1k/8k    | 5171.98 tok/s (1293.00 tok/s/chip)
+8k/1k    | 2280.85 tok/s (570.21 tok/s/chip)
 
 **Note**: These benchmark results are based on the `InferenceX` client. The development team is continuously improving and optimizing performance; as such, these results are subject to change, and improved or optimized figures may be published in the future.
 
